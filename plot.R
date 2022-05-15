@@ -63,3 +63,6 @@ search_counts %>%
         axis.text.y = element_text(face="bold", size=10))+
   theme(legend.position=c(0.15, 0.65))
 
+
+#Save the plot
+ggsave('plot.png', height = 5, width = 7)
