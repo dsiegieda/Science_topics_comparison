@@ -52,16 +52,21 @@ search_counts %>%
   scale_y_log10(limits=c(NA, 100),
                 breaks=c(0.0001, 0.001,0.01, 0.1, 1, 10, 100),
                 labels=c('0.0001%','0.001%',"0.01%", "0.1%", "1%", "10%", "100%")) +
+  scale_x_continuous(expand = c(0,0), breaks = seq(2000,2021, by=5),
+                     minor_breaks = seq(2000,2021,by=1))+
   labs(x="Year", y="Percentage of papers in PubMed") +
   scale_color_manual(name=NULL,
                      label=c('Cancer','Human microbiome', "Plant microbiome",'Human mycobiome',"Plant mycobiome"),
                      values=c("#a6a6a6", '#b3e6b3', "#339933",'#b3d1ff','#0066ff'),
                      #values=wes_palette(n=5, name='Darjeeling1'),
                      breaks=c('rel_cancer','rel_micro_hum',"rel_micro",'rel_myco_hum',"rel_myco")) +
-  theme_classic() +
+  theme_light() +
   theme(axis.text.x = element_text(face="bold", size=10),
         axis.text.y = element_text(face="bold", size=10))+
-  theme(legend.position=c(0.15, 0.65))
+  theme(
+    axis.ticks = element_blank(),
+    legend.margin = margin(0,0,0,0),
+    legend.position=c(0.15, 0.65))
 
 
 #Save the plot
